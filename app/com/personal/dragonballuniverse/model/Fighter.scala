@@ -46,9 +46,7 @@ object Fighter {
 
   case class Mission(id: String, damage : Int, health : Int) extends Fighter {
 
-    def bestSkill() : Option[Skill] = {
-      Option(DefectSkill(damage = this.damage))
-    }
+    def bestSkill() : Option[Skill] = Option(DefectSkill(damage = this.damage))
 
     def reduceHealth(damage: Int) : Option[Mission] = this.health - damage match {
       case cond if (cond <= 0) => None
